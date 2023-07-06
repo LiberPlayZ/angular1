@@ -1,0 +1,40 @@
+<div class="formA">
+<form [formGroup]="myForm">
+<h1>Registration</h1>
+<h2>UserName :</h2>
+<mat-form-field class="example-full-width">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" id="UserName" formControlName="Uname">
+  </mat-form-field>
+
+<h2>Password :</h2>
+<mat-form-field class="example-full-width">
+    <mat-label></mat-label>
+    <input matInput  type="password" id="pwd" formControlName="pwd">
+  </mat-form-field>
+<div class="error-message" *ngIf="myForm.get('pwd')?.hasError('minlength')&& !myForm.get('pwd')?.hasError('required')">Password  must be at least 6 characters long.</div>
+
+<h2>Password Check :</h2>
+<mat-form-field class="example-full-width">
+    <mat-label></mat-label>
+    <input matInput type="password" id="pwdCheck" formControlName="pwdCheck">
+  </mat-form-field>
+<div class="error-message"  *ngIf="myForm.hasError('passwordMismatch')">Password do not match</div>
+
+
+<h2>Email :</h2>
+<mat-form-field class="inputsF">
+    <mat-label></mat-label>
+    <input matInput type="email" id="email" formControlName="email" placeholder="Ex. pat@example.com">
+  </mat-form-field>
+  <mat-error *ngIf="myForm.get('email')?.hasError('email')&& !myForm.get('email')?.hasError('required')">email is not valid</mat-error>
+
+<div class="button-container">
+<button type="button" class="ClickB" (click)="onSubmit()" >Submit</button>
+</div>
+
+
+</form>
+
+</div>
+
