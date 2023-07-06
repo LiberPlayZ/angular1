@@ -31,18 +31,22 @@ input{
     margin: 15px 10px;
     
   }
-  h2{
+  /* h2{
     margin:25px;
-  }
+  } */
  
   
    .ClickB:hover {
     background-color: rgb(10, 153, 151);
     color: white;
   }
-  .error-message{
+  .mat-mdc-form-field-error{
     color: red;
     font-size: 14px;
     height: 5px;
     width: 200px;
+    margin-bottom: 5px;
+  }
+  .longMessage{
+    margin-bottom: 40px;
   }
