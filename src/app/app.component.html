@@ -67,12 +67,19 @@
     <input type="text" [value]="RandomNumber" readonly>
   </ng-container>
   <ng-template #emptyTextBox>
-    <input type="text" value="">
+    <input type="text" value="" readonly>
   </ng-template>
 
    
-  <app-regis></app-regis>
-  <mat-slide-toggle>Toggle me!</mat-slide-toggle>
+  <!-- <app-regis></app-regis> -->
+  <!-- <mat-slide-toggle>Toggle me!</mat-slide-toggle> -->
+  
+<app-backend-communication></app-backend-communication>
+
+  <img [src]="IMAGE" />
+<button (click)="showImage()">Show Image</button>
+
+
  
 
 </div>

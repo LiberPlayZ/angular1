@@ -10,14 +10,23 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
+import { Routes, RouterModule } from '@angular/router';
 
+
+const routes: Routes = [
+  // ... other routes
+  { path: 'view-image', component: BackendCommunicationComponent }
+];
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisComponent
+    RegisComponent,
+    BackendCommunicationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,10 +34,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ReactiveFormsModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
-  
-  
-    MatFormFieldModule, MatInputModule
-  ],
+    MatFormFieldModule, MatInputModule,
+    HttpClientModule,RouterModule.forRoot(routes)
+  ],exports:[RouterModule],
   providers: [],
   bootstrap: [AppComponent]
 })
