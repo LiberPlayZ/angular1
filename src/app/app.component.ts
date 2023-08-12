@@ -46,19 +46,7 @@ export class AppComponent {
       }
     );
   }
-  public IMAGE:string;
-  showImage(): void {
-    this.dataService.recivegraphdata().subscribe(
-      (response: any) => {
-        console.log(response.graph_data);
-        this.IMAGE="data:image/png;base64,"+response.graph_data;
-      //  this.router.navigate(['/view-image'], { queryParams: { imageBase64: response.graph_data } });
-      },
-      (error: any) => {
-        console.error('Error fetching data:', error);
-      }
-    );
-  }
+ 
 
 //   recivegraphdata(): void {
 //     this.dataService.recivegraphdata().subscribe(

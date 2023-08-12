@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisComponent } from './Registration/regis.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {ReactiveFormsModule,FormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
@@ -32,6 +32,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule,

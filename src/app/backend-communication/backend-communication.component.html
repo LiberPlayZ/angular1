@@ -1,7 +1,11 @@
 
+<div class="container">
+<div class="button-textbox-container">
+    <input type="text" [(ngModel)]="inputValue" class="left-input" >
+    <button class="ClickB"  (click)="sendGraphIdToBackEnd()">Show Image</button>
+</div>
+<div class="image-container" [ngClass]="{'visible':showImageFlag}">
+    <img [src]="IMAGE" class="graph-style" />
+</div>
+</div>
 
-
-<!-- <button (click)="recivegraphdata()" class="ClickB" >Send</button>
-<a routerLink="/image">View Image</a> -->
-
-<!-- <button (click)="recivegraphdata()">Show Image</button> -->

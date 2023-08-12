@@ -18,8 +18,14 @@ export class DataService {
 }
 
 recivegraphdata(): Observable<any> {
-  const graphApiUrl= '/graphUrl'
-  const graphUrl=this.apiUrl+graphApiUrl
-  return this.http.post<any>(graphUrl, {});
+  const graphApiUrl= '/graphUrl';
+  const graphUrl=this.apiUrl+graphApiUrl;
+  return this.http.get<any>(graphUrl, {});
+}
+
+sendGraphId(data:any){
+  const graphIdApiUrl='/IdUrl';
+  const Url=this.apiUrl+graphIdApiUrl;
+  return this.http.post<any>(Url,data)
 }
 }

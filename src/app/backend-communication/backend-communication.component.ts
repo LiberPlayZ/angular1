@@ -8,22 +8,59 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './backend-communication.component.html',
   styleUrls: ['./backend-communication.component.css']
 })
-export class BackendCommunicationComponent implements OnInit  {
-  imageData: string;
+export class BackendCommunicationComponent   {
+  showImageFlag = false
 
-  safeImageUrl: SafeResourceUrl;
+ //send data to python backend
+ constructor(private dataService: DataService,private router:Router) {}
 
-  constructor(private dataService: DataService,private sanitizer: DomSanitizer,private route:ActivatedRoute) {}
-  ngOnInit(){
-    this.imageData = this.route.snapshot.queryParamMap.get('imageBase64');
+  public IMAGE:string;
+  inputValue:string = '';
+  showImage(): void {
+    this.dataService.recivegraphdata().subscribe(
+      (response: any) => {
+        console.log(response.graph_data);
+        if(this.showImageFlag==false){
+        this.showImageFlag=!this.showImageFlag
+        }
+        this.IMAGE="data:image/png;base64,"+response.graph_data;
+      //  this.router.navigate(['/view-image'], { queryParams: { imageBase64: response.graph_data } });
+      },
+      (error: any) => {
+        console.error('Error fetching data:', error);
+      }
+    );
   }
+  sendGraphIdToBackEnd(){
+        if (this.inputValue){
+          this.dataService.sendGraphId({data:this.inputValue}).subscribe(
+            response=>{
+              console.log('response',response);
+              this.showImage()
+            },
+            error=>{
+              console.log('eror',error)
+            }
+
+          );
+        }
+  }
+
+  // imageData: string;
+
+  // safeImageUrl: SafeResourceUrl;
+
+  // constructor(private dataService: DataService,private sanitizer: DomSanitizer,private route:ActivatedRoute) {}
+  // ngOnInit(){
+  //   this.imageData = this.route.snapshot.queryParamMap.get('imageBase64');
+  // }
 
  
   
-  getSafeImageURL(): SafeResourceUrl {
-    const imageUrl = 'data:image/png;base64,' + this.imageData;
-    return this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
-  }
+  // getSafeImageURL(): SafeResourceUrl {
+  //   const imageUrl = 'data:image/png;base64,' + this.imageData;
+  //   return this.sanitizer.bypassSecurityTrustResourceUrl(imageUrl);
+  // }
    // ngOnInit(): void {
   //       this.dataService.recivegraphdata().subscribe(
   //         (response: any) => {
