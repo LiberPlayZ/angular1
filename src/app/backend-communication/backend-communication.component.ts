@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageModel } from './image.mode';
 
 @Component({
   selector: 'app-backend-communication',
@@ -15,7 +16,7 @@ export class BackendCommunicationComponent   {
  constructor(private dataService: DataService,private router:Router) {}
 
   public IMAGE:string;
-  inputValue:string = '';
+  inputValue:number = 0;
   showImage(): void {
     this.dataService.recivegraphdata().subscribe(
       (response: any) => {
@@ -33,16 +34,21 @@ export class BackendCommunicationComponent   {
   }
   sendGraphIdToBackEnd(){
         if (this.inputValue){
-          this.dataService.sendGraphId({data:this.inputValue}).subscribe(
-            response=>{
-              console.log('response',response);
-              this.showImage()
-            },
-            error=>{
-              console.log('eror',error)
-            }
+         
+          this.dataService.sendGraphId(this.inputValue).then((response:ImageModel)=>
+          {
+            console.log(response.correlation_coefficient)
+          })
+          // .subscribe(
+          //   response=>{
+          //     console.log('response',response);
+          //     // this.showImage()
+          //   },
+          //   error=>{
+          //     console.log('eror',error)
+          //   }
 
-          );
+          // );
         }
   }
 

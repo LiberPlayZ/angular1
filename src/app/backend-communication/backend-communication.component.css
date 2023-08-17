@@ -8,7 +8,8 @@
     border-radius: 8px;
     outline: none;
     text-align: center;
-    
+    margin-left: 1%;
+    width: 150px;
   }
   
  
@@ -41,16 +42,17 @@
     display:flex;
     align-items: center;
   }
-  input[type=text] {
-    width: 30px;
-    height: 15px;
-    padding: 15px 40px;
-    margin: 10px;
+  input[type=number] {
+    width: 150px;
+    height: 35px;
+    padding: 5px;
+    margin-right: 1%;
     font-size: 16px;
     font-weight: bold;
     text-align: center;
     font-family: Arial;
     border: 2px solid black;
+  
   }
 
 

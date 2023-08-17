@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { ImageModel } from './backend-communication/image.mode';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +10,26 @@ import { environment } from 'src/environments/environment';
 export class DataService {
 
   private apiUrl = environment.apiUrl
-
-  constructor(private http: HttpClient) {}
+  private headers: HttpHeaders;
+  constructor(private http: HttpClient) {
+    this.headers = new HttpHeaders({
+      'Content-Type': 'application/json' // Adjust content type based on API requirements
+    });
+  }
 
   sendDataToPython(data: any): Observable<any> {
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    return this.http.post<any>(this.apiUrl, data, { headers });
-}
+    return this.http.post<any>(this.apiUrl, data, { headers: this.headers });
+  }
 
-recivegraphdata(): Observable<any> {
-  const graphApiUrl= '/graphUrl';
-  const graphUrl=this.apiUrl+graphApiUrl;
-  return this.http.get<any>(graphUrl, {});
-}
+  recivegraphdata(): Observable<any> {
+    const graphApiUrl = '/graphUrl';
+    const graphUrl = this.apiUrl + graphApiUrl;
+    return this.http.get<any>(graphUrl, {});
+  }
 
-sendGraphId(data:any){
-  const graphIdApiUrl='/IdUrl';
-  const Url=this.apiUrl+graphIdApiUrl;
-  return this.http.post<any>(Url,data)
-}
+  sendGraphId(imageId: number): Promise<ImageModel> {
+    const graphIdApiUrl = '/IdUrl';
+    const Url = this.apiUrl + graphIdApiUrl + "?imageId="+imageId;
+    return this.http.get<ImageModel>(Url, { headers: this.headers }).toPromise()
+  }
 }
