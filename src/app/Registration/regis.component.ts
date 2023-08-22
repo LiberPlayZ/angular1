@@ -1,7 +1,6 @@
 import  {Component} from '@angular/core'
 import { FormBuilder,FormsModule,FormGroup,Validators,  AbstractControl,ValidatorFn,ValidationErrors } from '@angular/forms'
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { environment } from 'src/environments/environment';
 
 @Component({
     selector:'app-regis',
@@ -28,6 +27,8 @@ onSubmit(){
     if(this.myForm.valid){
         console.log(this.myForm.value);
         alert("Form submitted successfully! ");
+        
+    
         this.myForm.reset();
     }
     else if(this.myForm.hasError('passwordMismatch')){

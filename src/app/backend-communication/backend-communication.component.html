@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="button-textbox-container">
+        <input type="number" [(ngModel)]="inputValue" class="left-input">
+        <button class="ClickB" (click)="sendGraphIdToBackEnd()">Show Image</button>
+    </div>
+    <label *ngIf="labelVisible" [ngClass]="getColorClass(received_correlation_coefficient)">{{receivedText}}</label>
+    <div class="image-container" [ngClass]="{'visible':labelVisible}">
+        <img [src]="IMAGE" class="graph-style" />
+    </div>
+</div>

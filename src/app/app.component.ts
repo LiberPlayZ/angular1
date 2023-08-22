@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { DataService } from './data.service';
+import { SafeResourceUrl,DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -13,6 +17,7 @@ export class AppComponent {
   //   "test":true
   // }
   RandomNumber: number=-1;
+  
 
 
   function1() {//example function
@@ -25,5 +30,36 @@ export class AppComponent {
   function2() {
     return alert("hello world")
   }
+
+
+  //send data to python backend
+  constructor(private dataService: DataService,private router:Router) {}
+
+  sendDataToPython() {
+    const data = { name: 'John', age: 30 };
+    this.dataService.sendDataToPython(data).subscribe(
+      (response) => {
+        console.log('Data sent successfully:', response);
+      },
+      (error) => {
+        console.error('Error sending data:', error);
+      }
+    );
+  }
+ 
+
+//   recivegraphdata(): void {
+//     this.dataService.recivegraphdata().subscribe(
+//       (response: any) => {
+//         // response.graph_data=new TextEncoder().encode(response.graph_data)
+//         // const recievedata=response
+//         console.log('Received data:', response);
+
+//       },
+//       (error: any) => {
+//         console.error('Error fetching data:', error);
+//       }
+//     );
+// }
 
 }
