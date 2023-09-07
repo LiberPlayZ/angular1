@@ -14,17 +14,19 @@ export class BackendCommunicationComponent implements OnInit {
 
   //send data to python backend
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
-
+  data: ImageModel;
   IMAGE: string;
   inputValue: number = 0;
+  counter: number = 0
   received_correlation_coefficient: number
   receivedText: string
   labelVisible = false
 
   ngOnInit(): void {
-    this.route.params.subscribe((params)=>{
-      const id= +params['id'];
+    this.route.params.subscribe((params) => {
+      const id = +params['id'];
       this.dataService.sendGraphId(id).then((response: ImageModel) => {
+        this.data = response
         if (this.labelVisible == false) {
           this.labelVisible = !this.labelVisible
         }
@@ -35,16 +37,24 @@ export class BackendCommunicationComponent implements OnInit {
           if (response.correlation_coefficient == 0) {
             this.receivedText = "there is no connection ";
           }
-          else {
-            this.receivedText = `prediction percentage is ${response.prediction_percentage} %`;
-          }
-          this.received_correlation_coefficient = response.correlation_coefficient;
+
           //  console.log(" prediction percentage is" +response.correlation_coefficient)
           this.IMAGE = "data:image/png;base64," + response.graph_data;
         }
       })
-      
-     })
+
+    })
+  }
+
+  mergeAarrays(value: ImageModel): number[][] {
+    const mergedArray: number[][] = []
+    if (value!==undefined) {
+      for (let i = 0; i < value.points_model.X_array.length; i++) {
+        mergedArray.push([value.points_model.X_array[i], value.points_model.Y_array[i]]);
+      }
+    }
+    return mergedArray;
+
   }
 
 
@@ -74,18 +84,18 @@ export class BackendCommunicationComponent implements OnInit {
 
   //   }
   // }
-  getColorClass(number: number): string {
-    if (number == 0)
-      return 'no_connection';
-    if (Math.abs(number) <= 0.3)
-      return 'low_connection';
-    else if (0.3 < Math.abs(number) && Math.abs(number) <= 0.7)
-      return 'medium_connection';
-    else if (0.7 < Math.abs(number) && Math.abs(number) < 1)
-      return 'strong_connection';
-    else
-      return 'perfect_connection';
-  }
+  // getColorClass(number: number): string {
+  //   if (number == 0)
+  //     return 'no_connection';
+  //   if (Math.abs(number) <= 0.3)
+  //     return 'low_connection';
+  //   else if (0.3 < Math.abs(number) && Math.abs(number) <= 0.7)
+  //     return 'medium_connection';
+  //   else if (0.7 < Math.abs(number) && Math.abs(number) < 1)
+  //     return 'strong_connection';
+  //   else
+  //     return 'perfect_connection';
+  // }
 
 
 

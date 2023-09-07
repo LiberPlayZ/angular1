@@ -13,7 +13,7 @@ export class GraphsDataComponent implements OnInit {
 
   constructor(private graphs_TableService: GraphsTableServiceService,private router:Router) { }
   ngOnInit(): void {
-    this.graphs_TableService.getData().subscribe((response) => {
+    this.graphs_TableService.getGraphModels().subscribe((response) => {
       this.data = response
     })
   }

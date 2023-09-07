@@ -10,8 +10,8 @@ import { TableModel } from './table.model';
 export class GraphsTableServiceService {
   private apiUrl = environment.apiUrl;
   constructor(private http: HttpClient) { }
-
-  getData(): Observable<TableModel[]> {
+ 
+  getGraphModels(): Observable<TableModel[]> {
     const graphsTableIdApiUrl = '/graphsTableUrl'
     const Url = this.apiUrl + graphsTableIdApiUrl
     return this.http.get<TableModel[]>(Url);

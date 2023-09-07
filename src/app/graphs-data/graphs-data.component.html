@@ -12,7 +12,7 @@
         <tr *ngFor="let item of data">
             <td>{{ item._id }}</td>
             <td>{{ item.number_of_samples }}</td>
-            <td>{{ item.prediction_percentage }}</td>
+            <td>{{ item.prediction_percentage }}<b> %</b></td>
             <td>{{ item.linear_connection }}</td>
             <td><button (click)="showgraph(item._id)">Show Graph</button></td>
            
