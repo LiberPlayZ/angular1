@@ -13,11 +13,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
 import { Routes, RouterModule } from '@angular/router';
-
+import { GraphsDataComponent } from './graphs-data/graphs-data.component';
+import { GraphsTableServiceService } from './graphs-data/graphs-table-service.service';
+import { NoDisplayGuard } from './graphs-data/no.display.guard';
 
 const routes: Routes = [
   // ... other routes
-  { path: 'view-image', component: BackendCommunicationComponent }
+  { path: 'view-image', component: BackendCommunicationComponent },
+  { path: 'showgraph/:id', component: BackendCommunicationComponent,canActivate:[NoDisplayGuard] }
 ];
 
 
@@ -26,7 +29,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     RegisComponent,
-    BackendCommunicationComponent
+    BackendCommunicationComponent,
+    GraphsDataComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +42,7 @@ const routes: Routes = [
     MatFormFieldModule, MatInputModule,
     HttpClientModule,RouterModule.forRoot(routes)
   ],exports:[RouterModule],
-  providers: [],
+  providers: [NoDisplayGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

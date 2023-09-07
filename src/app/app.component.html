@@ -57,18 +57,18 @@
 
   </div>
   
-  <h1>{{function1()}}</h1>
+  <!-- <h1>{{function1()}}</h1> -->
   <!-- <h1 [ngClass]="messageClass"></h1> -->
   <!-- <h2 class="test">hello</h2> -->
-  <button (click)="generaterandomNumber()" class="ClickB" >Click</button>
+  <!-- <button (click)="generaterandomNumber()" class="ClickB" >Click</button> -->
   <!-- <input type="text" [value]="RandomNumber" *ngIf="RandomNumber !== 0; else placeholder" readonly> -->
 
-  <ng-container *ngIf="RandomNumber !== -1; else emptyTextBox">
+  <!-- <ng-container *ngIf="RandomNumber !== -1; else emptyTextBox">
     <input type="text" [value]="RandomNumber" readonly>
   </ng-container>
   <ng-template #emptyTextBox>
     <input type="text" value="" readonly>
-  </ng-template>
+  </ng-template> -->
 
    
   <!-- <app-regis></app-regis> -->
@@ -82,7 +82,8 @@
  
 
 </div>
-<app-backend-communication></app-backend-communication>
+<app-graphs-data></app-graphs-data>
+<!-- <app-backend-communication></app-backend-communication> -->
 
 
   

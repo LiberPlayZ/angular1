@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ImageModel } from './backend-communication/image.mode';
+import { ImageModel } from './backend-communication/image.model';
 
 @Injectable({
   providedIn: 'root'
@@ -29,7 +29,7 @@ export class DataService {
 
   sendGraphId(imageId: number): Promise<ImageModel> {
     const graphIdApiUrl = '/IdUrl';
-    const Url = this.apiUrl + graphIdApiUrl + "?imageId="+imageId;
+    const Url = this.apiUrl + graphIdApiUrl + "?imageId=" + imageId;
     return this.http.get<ImageModel>(Url, { headers: this.headers }).toPromise()
   }
 }
