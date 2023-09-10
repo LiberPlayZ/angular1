@@ -1,1 +1,6 @@
 /* table.component.css */
+.no_connection { background-color:black }
+.perfect_connection { background-color: rgb(6, 126, 6); }
+.strong_connection { background-color: rgb(10, 212, 10); }
+.medium_connection{ background-color: orange}
+.low_connection { background-color: red; }

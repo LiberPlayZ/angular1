@@ -1,25 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-.table th, .table td {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
 .table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-.table tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table tr {
+  background-color: #f2f2f2;
+}

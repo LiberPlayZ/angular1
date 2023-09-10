@@ -22,7 +22,8 @@ export class BackendCommunicationComponent implements OnInit {
   receivedText: string
   labelVisible = false
 
-  ngOnInit(): void {
+  ngOnInit(): void //constructor for graph component that recive graph id from table component  .
+  {
     this.route.params.subscribe((params) => {
       const id = +params['id'];
       this.dataService.sendGraphId(id).then((response: ImageModel) => {
@@ -46,9 +47,10 @@ export class BackendCommunicationComponent implements OnInit {
     })
   }
 
-  mergeAarrays(value: ImageModel): number[][] {
+  mergeAarrays(value: ImageModel): number[][] //the function get image model from the backend and merge x array and y array to matrix for points table.
+  {
     const mergedArray: number[][] = []
-    if (value!==undefined) {
+    if (value !== undefined) {
       for (let i = 0; i < value.points_model.X_array.length; i++) {
         mergedArray.push([value.points_model.X_array[i], value.points_model.Y_array[i]]);
       }
@@ -83,18 +85,6 @@ export class BackendCommunicationComponent implements OnInit {
   //     })
 
   //   }
-  // }
-  // getColorClass(number: number): string {
-  //   if (number == 0)
-  //     return 'no_connection';
-  //   if (Math.abs(number) <= 0.3)
-  //     return 'low_connection';
-  //   else if (0.3 < Math.abs(number) && Math.abs(number) <= 0.7)
-  //     return 'medium_connection';
-  //   else if (0.7 < Math.abs(number) && Math.abs(number) < 1)
-  //     return 'strong_connection';
-  //   else
-  //     return 'perfect_connection';
   // }
 
 

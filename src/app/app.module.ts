@@ -4,12 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisComponent } from './Registration/regis.component';
-import {ReactiveFormsModule,FormsModule} from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { BackendCommunicationComponent } from './backend-communication/backend-communication.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -20,7 +20,7 @@ import { NoDisplayGuard } from './graphs-data/no.display.guard';
 const routes: Routes = [
   // ... other routes
   { path: 'view-image', component: BackendCommunicationComponent },
-  { path: 'showgraph/:id', component: BackendCommunicationComponent,canActivate:[NoDisplayGuard] }
+  { path: 'showgraph/:id', component: BackendCommunicationComponent, canActivate: [NoDisplayGuard] }
 ];
 
 
@@ -40,8 +40,8 @@ const routes: Routes = [
     MatSlideToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule, MatInputModule,
-    HttpClientModule,RouterModule.forRoot(routes)
-  ],exports:[RouterModule],
+    HttpClientModule, RouterModule.forRoot(routes)
+  ], exports: [RouterModule],
   providers: [NoDisplayGuard],
   bootstrap: [AppComponent]
 })
