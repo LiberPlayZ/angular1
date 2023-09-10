@@ -26,7 +26,7 @@ export class GraphsDataComponent implements OnInit {
   showgraph(id: number,correlation_coefficient:number): void //the function receive graph id and navigate to graph component through router.
   {
     sessionStorage.setItem('activatedByButton', 'true');
-    this.router.navigate(['showgraph', id,correlation_coefficient])
+    this.router.navigate(['showgraph', id])
   }
 
 

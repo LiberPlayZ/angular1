@@ -3,6 +3,9 @@ import { DataService } from '../data.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ImageModel } from './image.model';
 import { NONE_TYPE } from '@angular/compiler';
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-backend-communication',
@@ -15,49 +18,56 @@ export class BackendCommunicationComponent implements OnInit {
   //send data to python backend
   constructor(private dataService: DataService, private route: ActivatedRoute) { }
   data: ImageModel;
+  mergedData: any[] = [];
   IMAGE: string;
   inputValue: number = 0;
-  counter: number = 0
-  received_correlation_coefficient: number
-  receivedText: string
-  labelVisible = false
+  counter: number = 0;
+  received_correlation_coefficient: number;
+  receivedText: string;
+  labelVisible = false;
+  dataLoaded = false;
 
   ngOnInit(): void //constructor for graph component that recive graph id from table component  .
   {
+
     this.route.params.subscribe((params) => {
       const id = +params['id'];
-      const correlation_coefficient = +params[' correlation_coefficient'];
-      this.dataService.sendGraphId(id).then((response: ImageModel) => {
-        this.data = response
+      // const correlation_coefficient = +params[' correlation_coefficient'];
+      // console.log(correlation_coefficient);
+      this.dataService.sendGraphId(id).then((response: any) => {
+        this.data = response;
+        this.mergeAarrays();
+
+
         if (this.labelVisible == false) {
           this.labelVisible = !this.labelVisible
         }
-        if (correlation_coefficient == -2) {
-          alert("No Id found at data base . ")
-        }
-        else {
-          if (correlation_coefficient == 0) {
-            this.receivedText = "there is no connection ";
-          }
+        // if (correlation_coefficient == -2) {
+        //   alert("No Id found at data base . ");
+        // }
+        // else {
+        //   if (correlation_coefficient == 0) {
+        //     this.receivedText = "there is no connection ";
+        //   }
 
-          //  console.log(" prediction percentage is" +response.correlation_coefficient)
-          this.IMAGE = "data:image/png;base64," + response.graph_data;
-        }
+        //   //  console.log(" prediction percentage is" +response.correlation_coefficient)
+
+        // }
+        this.IMAGE = "data:image/png;base64," + response.graph_data;
       })
 
     })
   }
 
-  mergeAarrays(value: ImageModel): number[][] //the function get image model from the backend and merge x array and y array to matrix for points table.
+  mergeAarrays() //the function get image model from the backend and merge x array and y array to matrix for points table.
   {
-    const mergedArray: number[][] = []
-    if (value !== undefined) {
-      for (let i = 0; i < value.points_model.X_array.length; i++) {
-        mergedArray.push([value.points_model.X_array[i], value.points_model.Y_array[i]]);
-      }
-    }
-    return mergedArray;
+    const xArray = this.data.points_model.X_array;
+    const yArray = this.data.points_model.Y_array;
 
+    // Pair X_array and Y_array elements
+    for (let i = 0; i < xArray.length; i++) {
+      this.mergedData.push({ X: xArray[i], Y: yArray[i] });
+    }
   }
 
 

@@ -16,11 +16,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { GraphsDataComponent } from './graphs-data/graphs-data.component';
 import { GraphsTableServiceService } from './graphs-data/graphs-table-service.service';
 import { NoDisplayGuard } from './graphs-data/no.display.guard';
+import { MatTableModule } from '@angular/material/table';
 
 const routes: Routes = [
   // ... other routes
   { path: 'view-image', component: BackendCommunicationComponent },
-  { path: 'showgraph/:id/:correlation_coefficient', component: BackendCommunicationComponent, canActivate: [NoDisplayGuard] }
+  { path: 'showgraph/:id', component: BackendCommunicationComponent, canActivate: [NoDisplayGuard] }
 ];
 
 
@@ -36,6 +37,7 @@ const routes: Routes = [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    MatTableModule,
     FormsModule,
     MatSlideToggleModule,
     BrowserAnimationsModule,
