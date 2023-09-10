@@ -6,7 +6,7 @@
     <label *ngIf="labelVisible" [ngClass]="getColorClass(received_correlation_coefficient)">{{receivedText}}</label> -->
     <div class="image-container" [ngClass]="{'visible':labelVisible}">
         <img [src]="IMAGE" class="graph-style" />
-        <table class="table">
+        <table class="styled-table">
             <thead>
                 <tr *ngIf="data!==undefined">
                     <th>{{ data.points_model.X_name }}</th>

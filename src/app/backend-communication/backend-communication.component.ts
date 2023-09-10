@@ -26,16 +26,17 @@ export class BackendCommunicationComponent implements OnInit {
   {
     this.route.params.subscribe((params) => {
       const id = +params['id'];
+      const correlation_coefficient = +params[' correlation_coefficient'];
       this.dataService.sendGraphId(id).then((response: ImageModel) => {
         this.data = response
         if (this.labelVisible == false) {
           this.labelVisible = !this.labelVisible
         }
-        if (response.correlation_coefficient == -2) {
+        if (correlation_coefficient == -2) {
           alert("No Id found at data base . ")
         }
         else {
-          if (response.correlation_coefficient == 0) {
+          if (correlation_coefficient == 0) {
             this.receivedText = "there is no connection ";
           }
 

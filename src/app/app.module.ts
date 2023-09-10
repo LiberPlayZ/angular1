@@ -20,7 +20,7 @@ import { NoDisplayGuard } from './graphs-data/no.display.guard';
 const routes: Routes = [
   // ... other routes
   { path: 'view-image', component: BackendCommunicationComponent },
-  { path: 'showgraph/:id', component: BackendCommunicationComponent, canActivate: [NoDisplayGuard] }
+  { path: 'showgraph/:id/:correlation_coefficient', component: BackendCommunicationComponent, canActivate: [NoDisplayGuard] }
 ];
 
 
