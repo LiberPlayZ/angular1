@@ -1,4 +1,4 @@
-<table >
+<table>
     <thead>
         <tr>
             <th>ID</th>
@@ -9,15 +9,29 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of data" [ngClass]="getColorClass(item.correlation_coefficient)">
+        <tr *ngFor="let item of data.slice((currentPage-1)*itemsPerPage,currentPage*itemsPerPage)"
+            [ngClass]="getColorClass(item.correlation_coefficient)">
             <td>{{ item._id }}</td>
             <td>{{ item.number_of_samples }}</td>
             <td>{{ item.prediction_percentage }}<b> %</b></td>
             <td>{{ item.linear_connection }}</td>
             <td><button (click)="showgraph(item._id,item.correlation_coefficient)">Show Graph</button></td>
-           
+
         </tr>
     </tbody>
-   
+
 </table>
+<table>
+
+</table>
+
+<div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }}</span>
+    <button (click)="nextPage()" [disabled]="(currentPage * itemsPerPage) >= data.length">Next</button>
+</div>
+
+
+
+
 <router-outlet></router-outlet>

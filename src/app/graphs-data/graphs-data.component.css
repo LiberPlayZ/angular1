@@ -1,29 +1,92 @@
 /* table.component.css */
-.no_connection { background-color:black }
-.perfect_connection { background-color: rgb(6, 126, 6); }
-.strong_connection { background-color: rgb(10, 212, 10); }
-.medium_connection{ background-color: orange}
-.low_connection { background-color: red; }
+.no_connection {
+  background-color: black
+}
+
+.perfect_connection {
+  background-color: rgb(6, 126, 6);
+}
+
+.strong_connection {
+  background-color: rgb(10, 212, 10);
+}
+
+.medium_connection {
+  background-color: orange
+}
+
+.low_connection {
+  background-color: red;
+}
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  table th,
-  table td {
-    padding: 8px 12px;
-    border: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  table th {
-    background-color: #f2f2f2;
-    font-weight: bold;
-  }
-  
-  .table tr {
-    background-color: #f2f2f2;
-  }
+  width: 100%;
+  border-collapse: collapse;
+}
 
+table th,
+table td {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table tr {
+  background-color: #f2f2f2;
+}
+
+
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* Adjust margin as needed for spacing */
+}
+
+
+
+/* CSS for button styling */
+button {
+  padding: 10px 20px; 
+  background-color: #007bff; 
+  color: #fff; 
+  border: none; 
+  border-radius: 5px; 
+  cursor: pointer;
+  font-size: 16px; 
+  transition: background-color 0.3s ease; 
+  margin: 10px;
+
+ 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+button:hover {
+  background-color: #0056b3; 
+}
+
+
+button[disabled] {
+  background-color: #ccc; 
+  cursor: not-allowed; 
+}
+
+button[disabled] {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+
+span {
+  margin: 0 10px; 
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
 

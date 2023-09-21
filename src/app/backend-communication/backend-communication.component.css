@@ -1,70 +1,73 @@
 .ClickB {
-    border: 2px solid rgb(0, 255, 251);
-    height: 50px;
-    font-size: 16px;
-    transition-duration: 0.4s;
-    padding:0px  20px;
-    background-color: white;
-    border-radius: 8px;
-    outline: none;
-    text-align: center;
-    margin-left: 1%;
-    width: 150px;
-  }
-  
- 
- 
-   .ClickB:hover {
-    background-color: rgb(10, 153, 151);
-    color: white;
-  }
-  .image-container{
-    display: none;
-  
-    
-  }
-  .image-container.visible{
-    display: block;
-   
-  }
-  .container{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-  /* .left-input{
+  border: 2px solid rgb(0, 255, 251);
+  height: 50px;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  padding: 0px 20px;
+  background-color: white;
+  border-radius: 8px;
+  outline: none;
+  text-align: center;
+  margin-left: 1%;
+  width: 150px;
+}
+
+
+
+.ClickB:hover {
+  background-color: rgb(10, 153, 151);
+  color: white;
+}
+
+.image-container {
+  display: none;
+
+
+}
+
+.image-container.visible {
+  display: block;
+
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .left-input{
     margin-bottom: 10px;
     padding: 5px;
     height: 30px;
   } */
-  .button-textbox-container{
-    display:flex;
-    align-items: center;
-  }
-  input[type=number] {
-    width: 150px;
-    height: 35px;
-    padding: 5px;
-    margin-right: 1%;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    font-family: Arial;
-    border: 2px solid black;
-  
-  }
+.button-textbox-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type=number] {
+  width: 150px;
+  height: 35px;
+  padding: 5px;
+  margin-right: 1%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  font-family: Arial;
+  border: 2px solid black;
+
+}
 
 
-.graph-style{
-    width: auto;
-    height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
-    margin: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1)
-   
-    
+.graph-style {
+  width: auto;
+  height: auto;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 }
 
 
@@ -91,14 +94,14 @@
 } */
 
 
-.styled-table tr {
+/* .styled-table tr {
   background-color: #cbcaca;
 }
 
 
 .styled-table tr:hover {
   background-color: #e0e0e0;
-}
+} */
 
 
 
@@ -125,12 +128,9 @@
   border: 1px solid #ccc;
 }
 
-/* Center the table */
-.center-table {
-  margin: 0 auto;
-  max-width: 800px;
+.custom-table tr:hover {
+  background-color: #e0e0e0;
 }
-
 
 
 
@@ -144,5 +144,3 @@
 .strong_connection { color: rgb(10, 212, 10); }
 .medium_connection{ color: orange}
 .low_connection { color: red; } */
-
-

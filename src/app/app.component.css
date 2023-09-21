@@ -13,7 +13,7 @@ h1 {
 
 
 
-input[type=text] {
+/* input[type=text] {
   width: 30px;
   padding: 15px 40px;
   margin: 10px;
@@ -38,7 +38,7 @@ input[type=text] {
  .ClickB:hover {
   background-color: red;
   color: white;
-}
+} */
 
 
 h2,

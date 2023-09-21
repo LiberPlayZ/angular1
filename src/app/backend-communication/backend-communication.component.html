@@ -7,8 +7,8 @@
     <div class="image-container" [ngClass]="{'visible':labelVisible}">
         <img [src]="IMAGE" class="graph-style" />
         <!-- your-component.component.html -->
-        <div class="mat-elevation-z8" *ngIf="data">
-            <table mat-table [dataSource]="mergedData">
+        <div class="mat-elevati8" *ngIf="data">
+            <table class="custom-table" mat-table [dataSource]="mergedData">
               <!-- X Column -->
               <ng-container matColumnDef="X">
                 <th mat-header-cell *matHeaderCellDef>{{ data.points_model.X_name }}</th>

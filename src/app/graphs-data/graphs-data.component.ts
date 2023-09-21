@@ -10,6 +10,9 @@ import { Router } from '@angular/router';
 })
 export class GraphsDataComponent implements OnInit {
   data: TableModel[] = [];
+  currentPage: number = 1;
+  itemsPerPage: number = 5;
+
 
   constructor(private graphs_TableService: GraphsTableServiceService, private router: Router) { }
   ngOnInit(): void {
@@ -23,7 +26,7 @@ export class GraphsDataComponent implements OnInit {
 
     })
   }
-  showgraph(id: number,correlation_coefficient:number): void //the function receive graph id and navigate to graph component through router.
+  showgraph(id: number, correlation_coefficient: number): void //the function receive graph id and navigate to graph component through router.
   {
     sessionStorage.setItem('activatedByButton', 'true');
     this.router.navigate(['showgraph', id])
@@ -42,6 +45,16 @@ export class GraphsDataComponent implements OnInit {
       return 'strong_connection';
     else
       return 'perfect_connection';
+  }
+
+  nextPage() {
+    this.currentPage++;
+  }
+
+  previousPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
   }
 
 
